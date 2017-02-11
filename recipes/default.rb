@@ -34,7 +34,7 @@ if node['firewalld-rules']['port']
   node['firewalld-rules']['port'].each do |item|
     raise "firewalld-rules::port - Missing port" if !item.key?('port')
     raise "firewalld-rules::port - Missing action" unless %w(add remove).include? item['action']
-    firewalld_service item['port'] do
+    firewalld_port item['port'] do
       action if item['action'] == 'add' ? :add : :remove
       zone item['zone'] if item.key?('zone')
     end
@@ -46,7 +46,7 @@ if node['firewalld-rules']['interface']
     raise "firewalld-rules::interface - Missing interface" if !item.key?('interface')
     raise "firewalld-rules::interface - Missing zone" if !item.key?('zone')
     raise "firewalld-rules::interface - Missing action" unless %w(add change remove).include? item['action']
-    firewalld_service item['interface'] do
+    firewalld_interface item['interface'] do
       action :add if item['action'] == 'add'
       action :remove if item['action'] == 'remove'
       action :change if item['action'] == 'change'
