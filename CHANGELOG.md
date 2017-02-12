@@ -10,3 +10,6 @@ This file is used to list changes made in each version of the firewalld-rules co
 
 ## 0.1.2
 - [Tyler J Presley] - Fixed error calling wrong LWRPs for interface and port
+
+## 0.1.3
+- [Tyler J Presley] - Updated some formatting and updated a property for service
