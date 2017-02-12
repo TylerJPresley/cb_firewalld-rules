@@ -13,3 +13,6 @@ This file is used to list changes made in each version of the firewalld-rules co
 
 ## 0.1.3
 - [Tyler J Presley] - Updated some formatting and updated a property for service
+
+## 0.1.4
+- [Tyler J Presley] - Removed the service since the firewalld cookbook already handles this

@@ -1,3 +1,5 @@
+include_recipe('firewalld::enable')
+
 if node['firewalld-rules']['rich']
   node['firewalld-rules']['rich'].each do |item|
     raise("firewalld-rules::rich - Missing name") if !item.key?('name')

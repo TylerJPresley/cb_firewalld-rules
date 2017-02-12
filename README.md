@@ -55,10 +55,6 @@ Attributes are based off the firewalld LWRP: [https://github.com/rigrassm/firewa
 
 ## Usage
 
-### firewalld-rules::service
-
-Used to enable and start the firewalld service. If the service isn't started the converge will fail.
-
 ### firewalld-rules::default
 
 Just include `firewalld-rules` in your node's `run_list`: `recipe[firewalld-rules::default]`
