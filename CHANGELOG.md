@@ -16,3 +16,6 @@ This file is used to list changes made in each version of the firewalld-rules co
 
 ## 0.1.4
 - [Tyler J Presley] - Removed the service since the firewalld cookbook already handles this
+
+## 0.1.5
+- [Tyler J Presley] - README.md updates

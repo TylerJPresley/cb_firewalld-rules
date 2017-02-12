@@ -37,8 +37,8 @@ Attributes are based off the firewalld LWRP: [https://github.com/rigrassm/firewa
 
 #### service
 
-- **`node['firewalld-rules']['service']['name']`** - firewalld service name [string]
-- `node['firewalld-rules']['service']['zone']` - zone [String]
+- **`node['firewalld-rules']['service']['service']`** - firewalld service name [string]
+- **`node['firewalld-rules']['service']['zone']`** - zone [String]
 - `node['firewalld-rules']['service']['action']` - action (values: add, remove) (default: remove) [String]
 
 #### port
