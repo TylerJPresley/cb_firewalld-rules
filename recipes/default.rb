@@ -1,5 +1,19 @@
 include_recipe('firewalld::enable')
 
+if node['firewalld-rules']['interface']
+  node['firewalld-rules']['interface'].each do |item|
+    raise("firewalld-rules::interface - Missing interface") if !item.key?('interface')
+    raise("firewalld-rules::interface - Missing zone") if !item.key?('zone')
+    raise("firewalld-rules::interface - Missing action") unless %w(add change remove).include?(item['action'])
+    firewalld_interface item['interface'] do
+      action :add if item['action'] == 'add'
+      action :remove if item['action'] == 'remove'
+      action :change if item['action'] == 'change'
+      zone item['zone']
+    end
+  end
+end
+
 if node['firewalld-rules']['rich']
   node['firewalld-rules']['rich'].each do |item|
     raise("firewalld-rules::rich - Missing name") if !item.key?('name')
@@ -42,20 +56,6 @@ if node['firewalld-rules']['port']
       zone item['zone'] if item.key?('zone')
       action :add if item['action'] == 'add'
       action :remove if item['action'] == 'remove'
-    end
-  end
-end
-
-if node['firewalld-rules']['interface']
-  node['firewalld-rules']['interface'].each do |item|
-    raise("firewalld-rules::interface - Missing interface") if !item.key?('interface')
-    raise("firewalld-rules::interface - Missing zone") if !item.key?('zone')
-    raise("firewalld-rules::interface - Missing action") unless %w(add change remove).include?(item['action'])
-    firewalld_interface item['interface'] do
-      action :add if item['action'] == 'add'
-      action :remove if item['action'] == 'remove'
-      action :change if item['action'] == 'change'
-      zone item['zone']
     end
   end
 end

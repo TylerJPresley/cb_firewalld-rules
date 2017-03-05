@@ -19,3 +19,6 @@ This file is used to list changes made in each version of the firewalld-rules co
 
 ## 0.1.5
 - [Tyler J Presley] - README.md updates
+
+## 0.1.6
+- [Tyler J Presley] - Moved interaces to run first
